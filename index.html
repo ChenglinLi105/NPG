@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Laboratory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent: #4a90e2;
+            --accent-hover: #357abd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--bg-secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a.active {
+            color: var(--accent);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+            display: none;
+        }
+        
+        section.active {
+            display: block;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+        
+        /* Home Section */
+        .lab-image {
+            width: 100%;
+            height: 300px;
+            background-color: var(--bg-secondary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .news-card {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-us {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .external-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .external-link {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .external-link:hover {
+            background-color: var(--accent-hover);
+        }
+        
+        /* Publications Section */
+        .year-group {
+            margin-bottom: 2rem;
+        }
+        
+        .year-title {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--text-secondary);
+        }
+        
+        .publication-item {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .publication-link {
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .publication-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* People Section */
+        .people-category {
+            margin-bottom: 2rem;
+        }
+        
+        .category-title {
+            background-color: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .category-content {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .category-content.active {
+            display: grid;
+        }
+        
+        .person-card {
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .person-image {
+            height: 200px;
+            background-color: #2c2c2c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .person-info {
+            padding: 1.5rem;
+        }
+        
+        /* Grants Section */
+        .grant-item {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        /* Links Section */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .link-card {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .link-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .link-card a:hover {
+            text-decoration: underline;
+        }
+        
+        /* News Section */
+        .news-item {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Contacts Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .contact-detail {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-detail i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+            width: 20px;
+        }
+        
+        .map-placeholder {
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .github-info {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-placeholder">
+                        <!-- Replace with your logo image -->
+                        <div style="width: 50px; height: 50px; background: #4a90e2; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">LAB</div>
+                    </div>
+                    <div class="logo-text">Research Laboratory</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-section="publications">Publications</a></li>
+                        <li><a href="#" class="nav-link" data-section="people">People</a></li>
+                        <li><a href="#" class="nav-link" data-section="grants">Grants</a></li>
+                        <li><a href="#" class="nav-link" data-section="links">Links</a></li>
+                        <li><a href="#" class="nav-link" data-section="news">News</a></li>
+                        <li><a href="#" class="nav-link" data-section="contacts">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <div class="container">
+                <h2 class="section-title">Welcome to Our Research Laboratory</h2>
+                
+                <div class="lab-image">
+                    <!-- Replace with your lab image -->
+                    <i class="fas fa-flask" style="font-size: 3rem; color: #4a90e2;"></i>
+                </div>
+                
+                <h3 style="margin-bottom: 1rem; color: #4a90e2;">Latest News</h3>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <h3>New Research Grant Awarded</h3>
+                        <p>Our lab has been awarded a new research grant from the National Science Foundation...</p>
+                    </div>
+                    <div class="news-card">
+                        <h3>Paper Accepted at Prestigious Conference</h3>
+                        <p>Our paper on machine learning applications has been accepted at NeurIPS 2023...</p>
+                    </div>
+                    <div class="news-card">
+                        <h3>New Lab Member Joined</h3>
+                        <p>We welcome Dr. Jane Smith who has joined our lab as a postdoctoral researcher...</p>
+                    </div>
+                </div>
+                
+                <div class="about-us">
+                    <h3 style="margin-bottom: 1rem; color: #4a90e2;">About Us</h3>
+                    <p>Our research laboratory focuses on cutting-edge research in artificial intelligence, machine learning, and data science. We are committed to advancing knowledge and developing innovative solutions to complex problems. Our team consists of dedicated researchers, PhD students, and collaborators from around the world.</p>
+                    <p>We believe in open science and regularly share our findings through publications, open-source software, and collaborations with industry partners.</p>
+                </div>
+                
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #4a90e2;">Useful Links</h3>
+                <div class="external-links">
+                    <a href="https://www.zjnu.edu.cn" class="external-link">Zhejiang Normal University</a>
+                    <a href="#" class="external-link">Research Repository</a>
+                    <a href="#" class="external-link">Open Source Projects</a>
+                    <a href="#" class="external-link">Academic Partnerships</a>
+                    <a href="#" class="external-link">Industry Collaborations</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+                
+                <div class="year-group">
+                    <h3 class="year-title">2025</h3>
+                    <div class="publication-item">
+                        <p>Smith, J., Johnson, A., & Williams, R. (2025). Advanced machine learning techniques for climate modeling. <i>Nature Climate Change</i>, 15(3), 245-259.</p>
+                        <a href="#" class="publication-link">View Publication</a>
+                    </div>
+                    <div class="publication-item">
+                        <p>Chen, L., Wang, H., & Zhang, K. (2025). Neural networks for real-time data analysis. <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 39(2), 1120-1128.</p>
+                        <a href="#" class="publication-link">View Publication</a>
+                    </div>
+                </div>
+                
+                <div class="year-group">
+                    <h3 class="year-title">2024</h3>
+                    <div class="publication-item">
+                        <p>Brown, T., Davis, M., & Wilson, E. (2024). Deep learning approaches to natural language processing. <i>Journal of Machine Learning Research</i>, 25(4), 1-25.</p>
+                        <a href="#" class="publication-link">View Publication</a>
+                    </div>
+                    <div class="publication-item">
+                        <p>Garcia, S., Martinez, P., & Lopez, R. (2024). Computer vision for medical image analysis. <i>IEEE Transactions on Medical Imaging</i>, 43(6), 1450-1462.</p>
+                        <a href="#" class="publication-link">View Publication</a>
+                    </div>
+                </div>
+                
+                <div class="year-group">
+                    <h3 class="year-title">2023</h3>
+                    <div class="publication-item">
+                        <p>Kim, Y., Park, J., & Lee, S. (2023). Reinforcement learning in robotics. <i>Robotics and Autonomous Systems</i>, 167, 104471.</p>
+                        <a href="#" class="publication-link">View Publication</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- People Section -->
+        <section id="people">
+            <div class="container">
+                <h2 class="section-title">People</h2>
+                
+                <div class="people-category">
+                    <div class="category-title">
+                        <h3>PI (Principal Investigator)</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="category-content">
+                        <div class="person-card">
+                            <div class="person-image">
+                                <i class="fas fa-user" style="font-size: 3rem; color: #4a90e2;"></i>
+                            </div>
+                            <div class="person-info">
+                                <h4>Dr. John Smith</h4>
+                                <p>Professor of Computer Science. Research interests: Machine Learning, AI, Data Science.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="people-category">
+                    <div class="category-title">
+                        <h3>PhD Students</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="category-content">
+                        <div class="person-card">
+                            <div class="person-image">
+                                <i class="fas fa-user" style="font-size: 3rem; color: #4a90e2;"></i>
+                            </div>
+                            <div class="person-info">
+                                <h4>Jane Doe</h4>
+                                <p>PhD Candidate. Research focus: Natural Language Processing.</p>
+                            </div>
+                        </div>
+                        <div class="person-card">
+                            <div class="person-image">
+                                <i class="fas fa-user" style="font-size: 3rem; color: #4a90e2;"></i>
+                            </div>
+                            <div class="person-info">
+                                <h4>Robert Johnson</h4>
+                                <p>PhD Student. Research focus: Computer Vision.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="people-category">
+                    <div class="category-title">
+                        <h3>Master Students</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="category-content">
+                        <div class="person-card">
+                            <div class="person-image">
+                                <i class="fas fa-user" style="font-size: 3rem; color: #4a90e2;"></i>
+                            </div>
+                            <div class="person-info">
+                                <h4>Emily Chen</h4>
+                                <p>MS Student. Research focus: Deep Learning.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="people-category">
+                    <div class="category-title">
+                        <h3>Bachelor Students</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="category-content">
+                        <div class="person-card">
+                            <div class="person-image">
+                                <i class="fas fa-user" style="font-size: 3rem; color: #4a90e2;"></i>
+                            </div>
+                            <div class="person-info">
+                                <h4>Michael Brown</h4>
+                                <p>BS Student. Research assistant.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="people-category">
+                    <div class="category-title">
+                        <h3>Alumni</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="category-content">
+                        <div class="person-card">
+                            <div class="person-info">
+                                <h4>2023 Graduates</h4>
+                                <p>Sarah Williams (PhD), David Lee (MS)</p>
+                            </div>
+                        </div>
+                        <div class="person-card">
+                            <div class="person-info">
+                                <h4>2022 Graduates</h4>
+                                <p>Jennifer Garcia (PhD), Kevin Martinez (MS)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grants Section -->
+        <section id="grants">
+            <div class="container">
+                <h2 class="section-title">Grants</h2>
+                
+                <div class="grant-item">
+                    <h3>National Science Foundation Grant</h3>
+                    <p><strong>Amount:</strong> $500,000 | <strong>Duration:</strong> 2024-2027</p>
+                    <p>Research on advanced machine learning techniques for climate modeling.</p>
+                </div>
+                
+                <div class="grant-item">
+                    <h3>Industry Partnership Grant</h3>
+                    <p><strong>Amount:</strong> $250,000 | <strong>Duration:</strong> 2023-2025</p>
+                    <p>Collaborative research with TechCorp on AI applications in healthcare.</p>
+                </div>
+                
+                <div class="grant-item">
+                    <h3>University Research Fund</h3>
+                    <p><strong>Amount:</strong> $100,000 | <strong>Duration:</strong> 2024-2025</p>
+                    <p>Seed funding for exploratory research in quantum machine learning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Links Section -->
+        <section id="links">
+            <div class="container">
+                <h2 class="section-title">Useful Links</h2>
+                
+                <div class="links-grid">
+                    <div class="link-card">
+                        <h3>Academic Resources</h3>
+                        <p><a href="#">Google Scholar</a></p>
+                        <p><a href="#">IEEE Xplore</a></p>
+                        <p><a href="#">arXiv</a></p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <h3>Research Tools</h3>
+                        <p><a href="#">GitHub</a></p>
+                        <p><a href="#">Overleaf</a></p>
+                        <p><a href="#">TensorFlow</a></p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <h3>Conferences</h3>
+                        <p><a href="#">NeurIPS</a></p>
+                        <p><a href="#">ICML</a></p>
+                        <p><a href="#">CVPR</a></p>
+                    </div>
+                    
+                    <div class="link-card">
+                        <h3>Collaborators</h3>
+                        <p><a href="#">MIT AI Lab</a></p>
+                        <p><a href="#">Stanford AI Lab</a></p>
+                        <p><a href="#">Cambridge ML Group</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news">
+            <div class="container">
+                <h2 class="section-title">News</h2>
+                
+                <div class="news-item">
+                    <h3>Congratulations to Adva and Lior For receiving the Dean's award for outstanding students</h3>
+                    <p>We are proud to announce that two of our students, Adva and Lior, have received the Dean's award for outstanding students. This prestigious award recognizes their exceptional research contributions and academic achievements.</p>
+                    <p><em>Posted: June 15, 2023</em></p>
+                </div>
+                
+                <div class="news-item">
+                    <h3>New Research Paper Accepted at Prestigious Conference</h3>
+                    <p>Our paper titled "Advanced Neural Networks for Real-Time Data Analysis" has been accepted for presentation at the International Conference on Machine Learning (ICML) 2023.</p>
+                    <p><em>Posted: May 3, 2023</em></p>
+                </div>
+                
+                <div class="news-item">
+                    <h3>Lab Hosts International Workshop on AI Ethics</h3>
+                    <p>Our laboratory recently hosted an international workshop on AI ethics, bringing together researchers from around the world to discuss responsible AI development and deployment.</p>
+                    <p><em>Posted: April 18, 2023</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacts Section -->
+        <section id="contacts">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3 style="margin-bottom: 1rem; color: #4a90e2;">Get in Touch</h3>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Research Drive, Science Building, Room 456, Zhejiang Normal University, Jinhua, China</span>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>lab@example.com</span>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>+86 123 4567 8910</span>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Monday-Friday: 9:00 AM - 5:00 PM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="map-placeholder">
+                        <!-- Replace with your actual map embed code -->
+                        <div style="text-align: center;">
+                            <i class="fas fa-map" style="font-size: 3rem; color: #4a90e2; margin-bottom: 1rem;"></i>
+                            <p>Map would be embedded here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2023 Research Laboratory. All rights reserved.</p>
+            <div class="github-info">
+                <p>This website is hosted on GitHub Pages. <a href="#" style="color: #4a90e2;">Learn how to update content</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links and sections
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked link and corresponding section
+                this.classList.add('active');
+                const sectionId = this.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+        
+        // People category accordion functionality
+        document.querySelectorAll('.category-title').forEach(title => {
+            title.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Toggle content visibility
+                content.classList.toggle('active');
+                
+                // Toggle icon
+                if (content.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
