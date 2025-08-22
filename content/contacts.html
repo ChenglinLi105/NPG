@@ -1,0 +1,330 @@
+<div class="content-section">
+    <h2 class="section-title">Contact Us</h2>
+    
+    <div class="contact-content">
+        <div class="contact-info">
+            <h3 class="contact-subtitle">Get in Touch</h3>
+            
+            <div class="contact-detail">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Address</h4>
+                    <p>Intelligent Computing Laboratory<br>
+                    Department of Computer Science<br>
+                    Zhejiang Normal University<br>
+                    688 Yingbin Road, Jinhua<br>
+                    Zhejiang Province, China 321004</p>
+                </div>
+            </div>
+            
+            <div class="contact-detail">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Email</h4>
+                    <p>General inquiries: <a href="mailto:lab@iclab.edu.cn">lab@iclab.edu.cn</a></p>
+                    <p>Dr. John Smith: <a href="mailto:john.smith@iclab.edu.cn">john.smith@iclab.edu.cn</a></p>
+                </div>
+            </div>
+            
+            <div class="contact-detail">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Phone</h4>
+                    <p>Lab office: +86 579 8228 2345</p>
+                    <p>Dr. John Smith: +86 579 8228 2346</p>
+                </div>
+            </div>
+            
+            <div class="contact-detail">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Office Hours</h4>
+                    <p>Monday-Friday: 9:00 AM - 5:00 PM</p>
+                    <p>Weekends: Closed</p>
+                </div>
+            </div>
+            
+            <div class="contact-detail">
+                <div class="contact-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Join Our Lab</h4>
+                    <p>We are always looking for motivated students and researchers. Please check our <a href="people.html">People page</a> for current opportunities or contact us directly.</p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-map">
+            <h3 class="contact-subtitle">Find Us</h3>
+            <div class="map-container">
+                <!-- 实际使用时替换为真实的地图嵌入代码 -->
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>Map would be embedded here</p>
+                    <p class="map-note">Actual map integration would be added in production</p>
+                </div>
+            </div>
+            
+            <div class="directions">
+                <h4>Getting Here</h4>
+                <p>The lab is located in the Science Building on the main campus of Zhejiang Normal University. The building is accessible from the North Gate of the campus.</p>
+                <p><strong>Public Transportation:</strong> Take bus routes 18, 37, or 315 to "ZJNU North Gate" station.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="contact-form-section">
+        <h3 class="contact-subtitle">Send us a Message</h3>
+        <form class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .contact-subtitle {
+        color: var(--accent-blue);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+    
+    .contact-info {
+        background-color: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+    
+    .contact-detail {
+        display: flex;
+        margin-bottom: 1.5rem;
+        align-items: flex-start;
+    }
+    
+    .contact-detail:last-child {
+        margin-bottom: 0;
+    }
+    
+    .contact-icon {
+        font-size: 1.2rem;
+        color: var(--accent-blue);
+        margin-right: 1rem;
+        min-width: 20px;
+        padding-top: 0.2rem;
+    }
+    
+    .contact-text h4 {
+        color: var(--accent-green);
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-text p {
+        margin-bottom: 0.3rem;
+    }
+    
+    .contact-text a {
+        color: var(--accent-blue);
+        text-decoration: none;
+    }
+    
+    .contact-text a:hover {
+        text-decoration: underline;
+    }
+    
+    .social-links {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--bg-tertiary);
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--bg-tertiary);
+        color: var(--text-primary);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    
+    .social-link:hover {
+        background-color: var(--accent-blue);
+        transform: translateY(-3px);
+    }
+    
+    .contact-map {
+        background-color: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+    
+    .map-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    .map-placeholder {
+        height: 300px;
+        background-color: var(--bg-tertiary);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+    }
+    
+    .map-placeholder i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--accent-blue);
+    }
+    
+    .map-note {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        font-style: italic;
+    }
+    
+    .directions {
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--bg-tertiary);
+    }
+    
+    .directions h4 {
+        color: var(--accent-green);
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-form-section {
+        background-color: var(--bg-secondary);
+        padding: 2rem;
+        border-radius: 8px;
+    }
+    
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        background-color: var(--bg-primary);
+        border: 1px solid var(--bg-tertiary);
+        border-radius: 4px;
+        color: var(--text-primary);
+        font-family: inherit;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+    }
+    
+    .submit-btn {
+        background-color: var(--accent-blue);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background-color 0.3s;
+        align-self: flex-start;
+    }
+    
+    .submit-btn:hover {
+        background-color: var(--accent-purple);
+    }
+    
+    @media (max-width: 768px) {
+        .contact-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    // 简单的表单提交处理（实际使用时需要连接到后端）
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! In a production environment, this would be sent to our team.');
+        this.reset();
+    });
+</script>

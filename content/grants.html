@@ -1,0 +1,214 @@
+<div class="content-section">
+    <h2 class="section-title">Research Grants</h2>
+    
+    <div class="grants-intro">
+        <p>Our research is supported by grants from various funding agencies and industry partners. Below is a list of our current and past research projects.</p>
+    </div>
+    
+    <div class="grants-filter">
+        <button class="filter-btn active" data-filter="all">All Grants</button>
+        <button class="filter-btn" data-filter="current">Current</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+    
+    <div class="grants-list">
+        <div class="grant-item" data-status="current">
+            <div class="grant-header">
+                <h3>National Science Foundation Grant</h3>
+                <span class="grant-status current">Current</span>
+            </div>
+            <div class="grant-details">
+                <p><strong>Amount:</strong> $500,000 | <strong>Duration:</strong> 2024-2027</p>
+                <p><strong>Funding Agency:</strong> National Science Foundation</p>
+                <p><strong>PI:</strong> Dr. John Smith</p>
+            </div>
+            <div class="grant-description">
+                <p>Research on advanced machine learning techniques for climate modeling. This project aims to develop novel deep learning architectures that can more accurately predict climate patterns and extreme weather events.</p>
+            </div>
+        </div>
+        
+        <div class="grant-item" data-status="current">
+            <div class="grant-header">
+                <h3>Industry Partnership Grant</h3>
+                <span class="grant-status current">Current</span>
+            </div>
+            <div class="grant-details">
+                <p><strong>Amount:</strong> $250,000 | <strong>Duration:</strong> 2023-2025</p>
+                <p><strong>Funding Agency:</strong> TechCorp Inc.</p>
+                <p><strong>PI:</strong> Dr. John Smith</p>
+            </div>
+            <div class="grant-description">
+                <p>Collaborative research with TechCorp on AI applications in healthcare. This project focuses on developing machine learning models for early detection of diseases from medical imaging data.</p>
+            </div>
+        </div>
+        
+        <div class="grant-item" data-status="completed">
+            <div class="grant-header">
+                <h3>University Research Fund</h3>
+                <span class="grant-status completed">Completed</span>
+            </div>
+            <div class="grant-details">
+                <p><strong>Amount:</strong> $100,000 | <strong>Duration:</strong> 2022-2023</p>
+                <p><strong>Funding Agency:</strong> University Internal Grant</p>
+                <p><strong>PI:</strong> Dr. John Smith</p>
+            </div>
+            <div class="grant-description">
+                <p>Seed funding for exploratory research in quantum machine learning. This project investigated the potential of quantum computing approaches to enhance machine learning algorithms.</p>
+            </div>
+        </div>
+        
+        <div class="grant-item" data-status="completed">
+            <div class="grant-header">
+                <h3>Department of Energy Grant</h3>
+                <span class="grant-status completed">Completed</span>
+            </div>
+            <div class="grant-details">
+                <p><strong>Amount:</strong> $750,000 | <strong>Duration:</strong> 2020-2023</p>
+                <p><strong>Funding Agency:</strong> U.S. Department of Energy</p>
+                <p><strong>PI:</strong> Dr. John Smith</p>
+            </div>
+            <div class="grant-description">
+                <p>Research on energy-efficient AI algorithms for large-scale data centers. This project developed novel optimization techniques to reduce the computational resources required for training deep learning models.</p>
+            </div>
+        </div>
+        
+        <div class="grant-item" data-status="completed">
+            <div class="grant-header">
+                <h3>International Collaboration Grant</h3>
+                <span class="grant-status completed">Completed</span>
+            </div>
+            <div class="grant-details">
+                <p><strong>Amount:</strong> $300,000 | <strong>Duration:</strong> 2019-2022</p>
+                <p><strong>Funding Agency:</strong> International Science Foundation</p>
+                <p><strong>PI:</strong> Dr. John Smith</p>
+            </div>
+            <div class="grant-description">
+                <p>Collaborative research with European partners on explainable AI. This project developed techniques to make complex machine learning models more interpretable and transparent.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .grants-intro {
+        background-color: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+    }
+    
+    .grants-filter {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .filter-btn:hover {
+        background-color: var(--bg-tertiary);
+    }
+    
+    .filter-btn.active {
+        background-color: var(--accent-blue);
+        color: white;
+    }
+    
+    .grants-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .grant-item {
+        background-color: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+    
+    .grant-item:hover {
+        transform: translateY(-3px);
+    }
+    
+    .grant-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+    
+    .grant-header h3 {
+        color: var(--accent-blue);
+        margin: 0;
+        flex: 1;
+    }
+    
+    .grant-status {
+        padding: 0.3rem 0.8rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    
+    .grant-status.current {
+        background-color: var(--accent-green);
+        color: white;
+    }
+    
+    .grant-status.completed {
+        background-color: var(--bg-tertiary);
+        color: var(--text-secondary);
+    }
+    
+    .grant-details {
+        margin-bottom: 1rem;
+    }
+    
+    .grant-details p {
+        margin-bottom: 0.3rem;
+    }
+    
+    .grant-description {
+        border-top: 1px solid var(--bg-tertiary);
+        padding-top: 1rem;
+    }
+</style>
+
+<script>
+    // 研究项目过滤功能
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新活动按钮
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // 过滤项目
+            const filter = this.getAttribute('data-filter');
+            const grants = document.querySelectorAll('.grant-item');
+            
+            grants.forEach(grant => {
+                if (filter === 'all') {
+                    grant.style.display = 'block';
+                } else {
+                    if (grant.getAttribute('data-status') === filter) {
+                        grant.style.display = 'block';
+                    } else {
+                        grant.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+</script>

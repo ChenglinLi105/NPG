@@ -1,0 +1,264 @@
+<div class="content-section">
+    <h2 class="section-title">Lab News</h2>
+    
+    <div class="news-filters">
+        <button class="news-filter-btn active" data-filter="all">All News</button>
+        <button class="news-filter-btn" data-filter="awards">Awards</button>
+        <button class="news-filter-btn" data-filter="publications">Publications</button>
+        <button class="news-filter-btn" data-filter="events">Events</button>
+    </div>
+    
+    <div class="news-list">
+        <div class="news-item" data-category="awards">
+            <div class="news-date">
+                <span class="news-day">15</span>
+                <span class="news-month">Jun</span>
+                <span class="news-year">2023</span>
+            </div>
+            <div class="news-content">
+                <h3>Congratulations to Adva and Lior for receiving the Dean's award for outstanding students</h3>
+                <p>We are proud to announce that two of our students, Adva and Lior, have received the Dean's award for outstanding students. This prestigious award recognizes their exceptional research contributions and academic achievements throughout the year.</p>
+                <p>Adva's work on neural network interpretability has been published in top-tier conferences, while Lior's research on efficient training algorithms has shown promising results for reducing computational costs in deep learning.</p>
+                <div class="news-tags">
+                    <span class="news-tag awards">Awards</span>
+                    <span class="news-tag students">Students</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item" data-category="publications">
+            <div class="news-date">
+                <span class="news-day">03</span>
+                <span class="news-month">May</span>
+                <span class="news-year">2023</span>
+            </div>
+            <div class="news-content">
+                <h3>New Research Paper Accepted at Prestigious Conference</h3>
+                <p>Our paper titled "Advanced Neural Networks for Real-Time Data Analysis" has been accepted for presentation at the International Conference on Machine Learning (ICML) 2023.</p>
+                <p>The paper introduces a novel architecture that significantly improves processing speed while maintaining accuracy, with potential applications in autonomous systems and real-time analytics.</p>
+                <div class="news-tags">
+                    <span class="news-tag publications">Publications</span>
+                    <span class="news-tag research">Research</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item" data-category="events">
+            <div class="news-date">
+                <span class="news-day">18</span>
+                <span class="news-month">Apr</span>
+                <span class="news-year">2023</span>
+            </div>
+            <div class="news-content">
+                <h3>Lab Hosts International Workshop on AI Ethics</h3>
+                <p>Our laboratory recently hosted an international workshop on AI ethics, bringing together researchers from around the world to discuss responsible AI development and deployment.</p>
+                <p>The workshop featured keynote speakers from industry and academia, panel discussions on ethical frameworks, and hands-on sessions for developing ethical AI practices. Over 150 participants attended the hybrid event.</p>
+                <div class="news-tags">
+                    <span class="news-tag events">Events</span>
+                    <span class="news-tag ethics">AI Ethics</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item" data-category="awards">
+            <div class="news-date">
+                <span class="news-day">22</span>
+                <span class="news-month">Mar</span>
+                <span class="news-year">2023</span>
+            </div>
+            <div class="news-content">
+                <h3>Dr. Smith Receives Distinguished Research Award</h3>
+                <p>Our lab director, Dr. John Smith, has been awarded the Distinguished Research Award from the International Association for Artificial Intelligence. This award recognizes his groundbreaking contributions to the field of machine learning over the past decade.</p>
+                <p>Dr. Smith's work on federated learning and privacy-preserving AI has been instrumental in shaping the direction of the field and has led to several practical applications in healthcare and finance.</p>
+                <div class="news-tags">
+                    <span class="news-tag awards">Awards</span>
+                    <span class="news-tag faculty">Faculty</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item" data-category="publications">
+            <div class="news-date">
+                <span class="news-day">10</span>
+                <span class="news-month">Feb</span>
+                <span class="news-year">2023</span>
+            </div>
+            <div class="news-content">
+                <h3>New Book Chapter on Deep Learning Architectures</h3>
+                <p>Our lab members have contributed a chapter on "Advanced Deep Learning Architectures for Natural Language Processing" to the recently published Handbook of Artificial Intelligence.</p>
+                <p>The chapter provides a comprehensive overview of state-of-the-art architectures and includes practical examples and code snippets for implementing these models.</p>
+                <div class="news-tags">
+                    <span class="news-tag publications">Publications</span>
+                    <span class="news-tag nlp">NLP</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="news-item" data-category="events">
+            <div class="news-date">
+                <span class="news-day">28</span>
+                <span class="news-month">Jan</span>
+                <span class="news-year">2023</span>
+            </div>
+            <div class="news-content">
+                <h3>Annual Lab Retreat Concluded Successfully</h3>
+                <p>Our annual lab retreat brought together all members for three days of research discussions, planning sessions, and team-building activities. The retreat featured presentations of ongoing work, brainstorming sessions for new research directions, and valuable feedback from senior members.</p>
+                <p>This year's retreat focused on interdisciplinary collaborations and exploring applications of our research in addressing societal challenges.</p>
+                <div class="news-tags">
+                    <span class="news-tag events">Events</span>
+                    <span class="news-tag retreat">Retreat</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .news-filters {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .news-filter-btn {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .news-filter-btn:hover {
+        background-color: var(--bg-tertiary);
+    }
+    
+    .news-filter-btn.active {
+        background-color: var(--accent-blue);
+        color: white;
+    }
+    
+    .news-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .news-item {
+        display: flex;
+        background-color: var(--bg-secondary);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
+    
+    .news-item:hover {
+        transform: translateY(-3px);
+    }
+    
+    .news-date {
+        background-color: var(--accent-blue);
+        color: white;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 90px;
+    }
+    
+    .news-day {
+        font-size: 1.8rem;
+        font-weight: bold;
+        line-height: 1;
+    }
+    
+    .news-month {
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin: 0.3rem 0;
+    }
+    
+    .news-year {
+        font-size: 0.9rem;
+    }
+    
+    .news-content {
+        padding: 1.5rem;
+        flex: 1;
+    }
+    
+    .news-content h3 {
+        color: var(--accent-green);
+        margin-bottom: 1rem;
+    }
+    
+    .news-content p {
+        margin-bottom: 1rem;
+    }
+    
+    .news-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .news-tag {
+        padding: 0.3rem 0.8rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .news-tag.awards {
+        background-color: var(--accent-orange);
+        color: white;
+    }
+    
+    .news-tag.publications {
+        background-color: var(--accent-purple);
+        color: white;
+    }
+    
+    .news-tag.events {
+        background-color: var(--accent-green);
+        color: white;
+    }
+    
+    .news-tag.students, .news-tag.research, .news-tag.ethics, 
+    .news-tag.faculty, .news-tag.nlp, .news-tag.retreat {
+        background-color: var(--bg-tertiary);
+        color: var(--text-secondary);
+    }
+</style>
+
+<script>
+    // 新闻过滤功能
+    document.querySelectorAll('.news-filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新活动按钮
+            document.querySelectorAll('.news-filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // 过滤新闻
+            const filter = this.getAttribute('data-filter');
+            const newsItems = document.querySelectorAll('.news-item');
+            
+            newsItems.forEach(item => {
+                if (filter === 'all') {
+                    item.style.display = 'flex';
+                } else {
+                    if (item.getAttribute('data-category') === filter) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+</script>

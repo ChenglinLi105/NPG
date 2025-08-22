@@ -1,0 +1,137 @@
+<div class="content-section">
+    <h2 class="section-title">Welcome to Our Research Laboratory</h2>
+    
+    <div class="lab-image">
+        <img src="images/lab.jpg" alt="Laboratory Photo">
+    </div>
+    
+    <h3 class="content-subtitle">Latest News</h3>
+    <div class="news-grid">
+        <div class="news-card">
+            <h4>New Research Grant Awarded</h4>
+            <p>Our lab has been awarded a new research grant from the National Science Foundation...</p>
+            <a href="news.html" class="read-more">Read more</a>
+        </div>
+        <div class="news-card">
+            <h4>Paper Accepted at Prestigious Conference</h4>
+            <p>Our paper on machine learning applications has been accepted at NeurIPS 2023...</p>
+            <a href="news.html" class="read-more">Read more</a>
+        </div>
+        <div class="news-card">
+            <h4>New Lab Member Joined</h4>
+            <p>We welcome Dr. Jane Smith who has joined our lab as a postdoctoral researcher...</p>
+            <a href="news.html" class="read-more">Read more</a>
+        </div>
+    </div>
+    
+    <div class="about-us">
+        <h3 class="content-subtitle">About Us</h3>
+        <p>Our research laboratory focuses on cutting-edge research in artificial intelligence, machine learning, and data science. We are committed to advancing knowledge and developing innovative solutions to complex problems. Our team consists of dedicated researchers, PhD students, and collaborators from around the world.</p>
+        <p>We believe in open science and regularly share our findings through publications, open-source software, and collaborations with industry partners.</p>
+    </div>
+    
+    <h3 class="content-subtitle">Useful Links</h3>
+    <div class="external-links">
+        <a href="https://www.zjnu.edu.cn" class="external-link">Zhejiang Normal University</a>
+        <a href="#" class="external-link">Research Repository</a>
+        <a href="#" class="external-link">Open Source Projects</a>
+        <a href="#" class="external-link">Academic Partnerships</a>
+        <a href="#" class="external-link">Industry Collaborations</a>
+    </div>
+</div>
+
+<style>
+    .content-section {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--accent-blue);
+        font-size: 2.2rem;
+    }
+    
+    .content-subtitle {
+        margin: 2rem 0 1rem;
+        color: var(--accent-blue);
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+    
+    .lab-image {
+        width: 100%;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .lab-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .news-card {
+        background-color: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+    
+    .news-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .news-card h4 {
+        color: var(--accent-green);
+        margin-bottom: 0.5rem;
+    }
+    
+    .read-more {
+        color: var(--accent-blue);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-block;
+        margin-top: 0.5rem;
+    }
+    
+    .read-more:hover {
+        text-decoration: underline;
+    }
+    
+    .about-us {
+        background-color: var(--bg-secondary);
+        padding: 2rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+    }
+    
+    .external-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .external-link {
+        background-color: var(--accent-blue);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+    
+    .external-link:hover {
+        background-color: var(--accent-purple);
+    }
+</style>
