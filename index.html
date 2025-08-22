@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Laboratory | Zhejiang Normal University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --accent-blue: #4a86e8;
+            --accent-green: #4caf50;
+            --accent-orange: #ff9800;
+            --accent-purple: #9c27b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--bg-secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-blue);
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-blue);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-blue);
+        }
+        
+        /* Main Content Area */
+        #content-container {
+            min-height: 60vh;
+            padding: 2rem 0;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .github-info {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .github-info a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        
+        .github-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-placeholder">
+                        <img src="images/logo.png" alt="Lab Logo" id="lab-logo">
+                    </div>
+                    <div class="logo-text">Intelligent Computing Lab</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-content="home.html">Home</a></li>
+                        <li><a href="#" class="nav-link" data-content="publications.html">Publications</a></li>
+                        <li><a href="#" class="nav-link" data-content="people.html">People</a></li>
+                        <li><a href="#" class="nav-link" data-content="grants.html">Grants</a></li>
+                        <li><a href="#" class="nav-link" data-content="links.html">Links</a></li>
+                        <li><a href="#" class="nav-link" data-content="news.html">News</a></li>
+                        <li><a href="#" class="nav-link" data-content="contacts.html">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+        <div class="container">
+            <div id="content-container">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading content...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2023 Intelligent Computing Laboratory. All rights reserved.</p>
+            <div class="github-info">
+                <p>This website is hosted on GitHub Pages. <a href="#" id="github-repo-link">View source code</a></p>
+                <p>Last updated: <span id="last-updated">June 2023</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 内容加载函数
+        async function loadContent(contentFile) {
+            try {
+                // 显示加载状态
+                document.getElementById('content-container').innerHTML = `
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading content...</p>
+                    </div>
+                `;
+                
+                // 加载内容
+                const response = await fetch(`content/${contentFile}`);
+                const content = await response.text();
+                
+                // 插入内容
+                document.getElementById('content-container').innerHTML = content;
+                
+                // 更新活动导航链接
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-content') === contentFile) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // 保存当前页面状态到URL
+                window.history.pushState({content: contentFile}, '', `#${contentFile.split('.')[0]}`);
+                
+            } catch (error) {
+                console.error('Error loading content:', error);
+                document.getElementById('content-container').innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h2>Error Loading Content</h2>
+                        <p>Failed to load the requested page. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置GitHub仓库链接
+            document.getElementById('github-repo-link').href = `https://github.com/${githubUsername}/${githubRepo}`;
+            
+            // 导航点击事件
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loadContent(this.getAttribute('data-content'));
+                });
+            });
+            
+            // 检查URL哈希以确定初始加载哪个页面
+            const hash = window.location.hash.substring(1);
+            let initialContent = 'home.html';
+            
+            if (hash) {
+                // 将哈希映射到对应的内容文件
+                const contentMap = {
+                    'home': 'home.html',
+                    'publications': 'publications.html',
+                    'people': 'people.html',
+                    'grants': 'grants.html',
+                    'links': 'links.html',
+                    'news': 'news.html',
+                    'contacts': 'contacts.html'
+                };
+                
+                if (contentMap[hash]) {
+                    initialContent = contentMap[hash];
+                }
+            }
+            
+            // 加载初始内容
+            loadContent(initialContent);
+        });
+        
+        //  GitHub配置 - 需要您修改的部分
+        const githubUsername = 'your-username';  // 替换为您的GitHub用户名
+        const githubRepo = 'your-repo-name';     // 替换为您的仓库名称
+    </script>
+</body>
+</html>
