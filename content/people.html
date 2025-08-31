@@ -87,6 +87,7 @@
             align-items: center;
             background-color: var(--bg-tertiary);
             transition: background-color 0.3s;
+            user-select: none;
         }
         
         .category-title:hover {
@@ -567,11 +568,10 @@
             // 人员分类的展开/收起功能
             const categoryTitles = document.querySelectorAll('.category-title');
             
-            // 修正了这里的拼写错误：forEach 而不是 forEach
             categoryTitles.forEach(title => {
                 title.addEventListener('click', function() {
                     const content = this.nextElementSibling;
-                    const icon = this.querySelector('.fa-chevron-down, .fa-chevron-up');
+                    const icon = this.querySelector('i.fas');
                     
                     // 切换内容可见性
                     content.classList.toggle('active');
@@ -589,17 +589,10 @@
             
             // 默认展开第一个类别
             if (categoryTitles.length > 0) {
-                categoryTitles[0].click();
-            }
-            
-            // 添加URL哈希支持，可以直接链接到特定部分
-            if (window.location.hash) {
-                const targetId = window.location.hash.substring(1);
-                const targetElement = document.querySelector(`[data-category="${targetId}"]`);
-                
-                if (targetElement) {
-                    targetElement.click();
-                }
+                // 使用 setTimeout 确保 DOM 完全加载后再触发点击事件
+                setTimeout(() => {
+                    categoryTitles[0].click();
+                }, 100);
             }
         });
     </script>
