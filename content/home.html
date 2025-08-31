@@ -1,11 +1,16 @@
 <div class="content-section">
     <h2 class="section-title">Welcome to NPG</h2>
     
+    
+
+   <div class="lab-images-grid">
     <div class="lab-image">
         <img src="images/lab1.jpg" alt="Laboratory Photo">
-        </div>
+    </div>
+    <div class="lab-image">
         <img src="images/lab2.jpg" alt="Laboratory Photo">
     </div>
+   </div>
     
     
     <h3 class="content-subtitle">Latest News</h3>
@@ -62,15 +67,21 @@
         border-bottom: 1px solid var(--bg-tertiary);
     }
     
-    .lab-image {
-        width: 38%;
+    .lab-images-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        width: 68%;
         margin-bottom: 2rem;
+    }
+    
+    .lab-image {
         border-radius: 8px;
         overflow: hidden;
     }
     
     .lab-image img {
-        width: 38%;
+        width: 100%;
         height: auto;
         display: block;
     }
