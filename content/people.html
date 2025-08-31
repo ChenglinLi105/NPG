@@ -1,304 +1,575 @@
-<div class="content-section">
-    <h2 class="section-title">Our Team</h2>
-    
-    <div class="people-category">
-        <div class="category-title">
-            <h3><i class="fas fa-user-tie"></i> PI (Principal Investigator)</h3>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="category-content">
-            <div class="person-card">
-                <div class="person-image">
-                    <img src="images/pi.jpg" alt="Principal Investigator">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Team | Neuramind Probe Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --accent-blue: #4a86e8;
+            --accent-green: #4caf50;
+            --accent-orange: #ff9800;
+            --accent-purple: #9c27b0;
+            --accent-red: #f44336;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .people-category {
+            margin-bottom: 25px;
+            background-color: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-title {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg-tertiary);
+            transition: background-color 0.3s;
+        }
+        
+        .category-title:hover {
+            background-color: #363636;
+        }
+        
+        .category-title h2 {
+            margin: 0;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-content {
+            display: none;
+            padding: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .category-content.active {
+            display: grid;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .person-card {
+            background-color: var(--bg-tertiary);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .person-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, #2c3e50, #4a86e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .person-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .person-info {
+            padding: 20px;
+        }
+        
+        .person-info h3 {
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .person-title {
+            color: var(--accent-orange);
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .person-interests {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .person-email {
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+            word-break: break-all;
+        }
+        
+        .person-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .person-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .person-links a:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+        
+        .alumni-section {
+            padding: 20px;
+        }
+        
+        .alumni-year {
+            margin-bottom: 20px;
+        }
+        
+        .alumni-year h4 {
+            color: var(--accent-purple);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+        
+        .alumni-list {
+            list-style-type: none;
+        }
+        
+        .alumni-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .alumni-list li:before {
+            content: "•";
+            color: var(--accent-blue);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .category-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .person-image {
+                height: 200px;
+            }
+        }
+        
+        .placeholder-text {
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-flask"></i>
+            </div>
+            <h1>Research Team</h1>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </header>
+        
+        <div class="people-category">
+            <div class="category-title">
+                <h2><i class="fas fa-user-tie"></i> Principal Investigator</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="category-content">
+                <div class="person-card">
+                    <div class="person-image">
+                        <img src="images/></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Chenglin Li</h3>
+                        <p class="person-title">Associate Professor</p>
+                        <p class="person-interests">Research interests: Face and Word processing, Predictive Coding, AI, Deep Learning architectures</p>
+                        <p class="person-email">lichenglin105ATgmail.com</p>
+                        <div class="person-links">
+                            <a href="https://scholar.google.com.hk/citations?user=ikFm0WMAAAAJ&hl=zh-CN"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="person-info">
-                    <h4>Dr. John Smith</h4>
-                    <p class="person-title">Professor of Computer Science</p>
-                    <p class="person-interests">Research interests: Machine Learning, AI, Data Science</p>
-                    <p class="person-email">john.smith@university.edu</p>
-                    <div class="person-links">
-                        <a href="#"><i class="fab fa-google-scholar"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Jing Ma</h3>
+                        <p class="person-title">Lecturer, Co-PI</p>
+                        <p class="person-interests">Research interests: Second Language Learning and Teaching</p>
+                        <p class="person-email">emily.zhang@university.edu</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
+                            <a href="#"><i class="fas fa-book"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Dr. Xiaoyu Liu</h3>
+                        <p class="person-title">Lecturer, Co-PI</p>
+                        <p class="person-interests">Research interests: Second Language Learning and Teaching</p>
+                        <p class="person-email">liuxiaoyuimAT163.com</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
+                            <a href="#"><i class="fas fa-book"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="people-category">
+            <div class="category-title">
+                <h2><i class="fas fa-user-graduate"></i> PhD Students</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="category-content">
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Jane Doe</h3>
+                        <p class="person-title">PhD Candidate (Year 4)</p>
+                        <p class="person-interests">Research focus: Natural Language Processing, Transformers, Low-resource Language Modeling</p>
+                        <p class="person-email">jane.doe@university.edu</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Robert Johnson</h3>
+                        <p class="person-title">PhD Student (Year 3)</p>
+                        <p class="person-interests">Research focus: Computer Vision, Object Detection, Autonomous Systems, Semantic Segmentation</p>
+                        <p class="person-email">robert.johnson@university.edu</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Wei Chen</h3>
+                        <p class="person-title">PhD Student (Year 2)</p>
+                        <p class="person-interests">Research focus: Reinforcement Learning, Multi-agent Systems, Game Theory, Optimization</p>
+                        <p class="person-email">wei.chen@university.edu</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Sarah Williams</h3>
+                        <p class="person-title">PhD Student (Year 1)</p>
+                        <p class="person-interests">Research focus: Explainable AI, Interpretable Machine Learning, Model Transparency</p>
+                        <p class="person-email">sarah.williams@university.edu</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-blog"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="people-category">
+            <div class="category-title">
+                <h2><i class="fas fa-user-graduate"></i> Master Students</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="category-content">
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Emily Chen</h3>
+                        <p class="person-title">MS Student (Year 2)</p>
+                        <p class="person-interests">Research focus: Deep Learning, Generative Models, GANs, Image Synthesis</p>
+                        <p class="person-email">emily.chen@university.edu</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-kaggle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Michael Brown</h3>
+                        <p class="person-title">MS Student (Year 2)</p>
+                        <p class="person-interests">Research focus: Reinforcement Learning, Robotics, Motion Planning, Control Systems</p>
+                        <p class="person-email">michael.brown@university.edu</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-file-pdf"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Alex Kim</h3>
+                        <p class="person-title">MS Student (Year 1)</p>
+                        <p class="person-interests">Research focus: Federated Learning, Privacy-preserving AI, Distributed Systems</p>
+                        <p class="person-email">alex.kim@university.edu</p>
+                        <div class="person-links">
+                            <a href="#"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#"><i class="fab fa-researchgate"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="people-category">
+            <div class="category-title">
+                <h2><i class="fas fa-user"></i> Bachelor Students</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="category-content">
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>David Lee</h3>
+                        <p class="person-title">BS Student (Senior)</p>
+                        <p class="person-interests">Research assistant working on data annotation and model evaluation for NLP projects</p>
+                        <p class="person-email">david.lee@university.edu</p>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>Sophia Garcia</h3>
+                        <p class="person-title">BS Student (Junior)</p>
+                        <p class="person-interests">Research assistant working on computer vision datasets and annotation pipelines</p>
+                        <p class="person-email">sophia.garcia@university.edu</p>
+                    </div>
+                </div>
+                
+                <div class="person-card">
+                    <div class="person-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="person-info">
+                        <h3>James Wilson</h3>
+                        <p class="person-title">BS Student (Sophomore)</p>
+                        <p class="person-interests">Research assistant helping with literature reviews and experimental setup</p>
+                        <p class="person-email">james.wilson@university.edu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="people-category">
+            <div class="category-title">
+                <h2><i class="fas fa-graduation-cap"></i> Alumni</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="category-content">
+                <div class="alumni-section">
+                    <div class="alumni-year">
+                        <h4>2023 Graduates</h4>
+                        <ul class="alumni-list">
+                            <li>Jennifer Garcia (PhD) - Now at Google Research, Mountain View</li>
+                            <li>Kevin Martinez (MS) - Now at Microsoft AI & Research, Redmond</li>
+                            <li>Lisa Wang (BS) - Now pursuing PhD in CS at Stanford University</li>
+                            <li>Daniel Brown (MS) - Now at Amazon Web Services, Seattle</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="alumni-year">
+                        <h4>2022 Graduates</h4>
+                        <ul class="alumni-list">
+                            <li>Thomas Anderson (PhD) - Now Assistant Professor at MIT</li>
+                            <li>Maria Rodriguez (MS) - Now at Amazon AI, Boston</li>
+                            <li>James Wilson (BS) - Now pursuing MS at Carnegie Mellon University</li>
+                            <li>Rachel Kim (MS) - Now at Tesla Autopilot, Palo Alto</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="alumni-year">
+                        <h4>2021 Graduates</h4>
+                        <ul class="alumni-list">
+                            <li>Rachel Green (PhD) - Now Research Scientist at Facebook AI Research</li>
+                            <li>Daniel Kim (MS) - Now at NVIDIA, Santa Clara</li>
+                            <li>Amanda White (BS) - Now pursuing PhD at UC Berkeley</li>
+                            <li>Michael Chen (PhD) - Now at Apple Machine Learning Group, Cupertino</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="alumni-year">
+                        <h4>2020 Graduates</h4>
+                        <ul class="alumni-list">
+                            <li>Christopher Taylor (PhD) - Now Assistant Professor at University of Toronto</li>
+                            <li>Jessica Lopez (MS) - Now at Twitter Cortex, San Francisco</li>
+                            <li>Andrew Davis (BS) - Now at Uber AI, San Francisco</li>
+                            <li>Stephanie Harris (MS) - Now at Intel AI Products Group, Portland</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div class="people-category">
-        <div class="category-title">
-            <h3><i class="fas fa-user-graduate"></i> PhD Students</h3>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="category-content">
-            <div class="person-card">
-                <div class="person-image">
-                    <img src="images/phd1.jpg" alt="PhD Student">
-                </div>
-                <div class="person-info">
-                    <h4>Jane Doe</h4>
-                    <p class="person-title">PhD Candidate</p>
-                    <p class="person-interests">Research focus: Natural Language Processing</p>
-                    <p class="person-email">jane.doe@university.edu</p>
-                </div>
-            </div>
-            <div class="person-card">
-                <div class="person-image">
-                    <img src="images/phd2.jpg" alt="PhD Student">
-                </div>
-                <div class="person-info">
-                    <h4>Robert Johnson</h4>
-                    <p class="person-title">PhD Student</p>
-                    <p class="person-interests">Research focus: Computer Vision</p>
-                    <p class="person-email">robert.johnson@university.edu</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="people-category">
-        <div class="category-title">
-            <h3><i class="fas fa-user-graduate"></i> Master Students</h3>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="category-content">
-            <div class="person-card">
-                <div class="person-image">
-                    <img src="images/ms1.jpg" alt="Master Student">
-                </div>
-                <div class="person-info">
-                    <h4>Emily Chen</h4>
-                    <p class="person-title">MS Student</p>
-                    <p class="person-interests">Research focus: Deep Learning</p>
-                    <p class="person-email">emily.chen@university.edu</p>
-                </div>
-            </div>
-            <div class="person-card">
-                <div class="person-image">
-                    <img src="images/ms2.jpg" alt="Master Student">
-                </div>
-                <div class="person-info">
-                    <h4>Michael Brown</h4>
-                    <p class="person-title">MS Student</p>
-                    <p class="person-interests">Research focus: Reinforcement Learning</p>
-                    <p class="person-email">michael.brown@university.edu</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="people-category">
-        <div class="category-title">
-            <h3><i class="fas fa-user"></i> Bachelor Students</h3>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="category-content">
-            <div class="person-card">
-                <div class="person-image">
-                    <img src="images/bs1.jpg" alt="Bachelor Student">
-                </div>
-                <div class="person-info">
-                    <h4>Sarah Williams</h4>
-                    <p class="person-title">BS Student</p>
-                    <p class="person-interests">Research assistant</p>
-                </div>
-            </div>
-            <div class="person-card">
-                <div class="person-image">
-                    <img src="images/bs2.jpg" alt="Bachelor Student">
-                </div>
-                <div class="person-info">
-                    <h4>David Lee</h4>
-                    <p class="person-title">BS Student</p>
-                    <p class="person-interests">Research assistant</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="people-category">
-        <div class="category-title">
-            <h3><i class="fas fa-graduation-cap"></i> Alumni</h3>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="category-content">
-            <div class="alumni-year">
-                <h4>2023 Graduates</h4>
-                <ul>
-                    <li>Jennifer Garcia (PhD) - Now at Google Research</li>
-                    <li>Kevin Martinez (MS) - Now at Microsoft</li>
-                    <li>Lisa Wang (BS) - Now pursuing PhD at Stanford</li>
-                </ul>
-            </div>
-            <div class="alumni-year">
-                <h4>2022 Graduates</h4>
-                <ul>
-                    <li>Thomas Anderson (PhD) - Now Assistant Professor at MIT</li>
-                    <li>Maria Rodriguez (MS) - Now at Amazon AI</li>
-                    <li>James Wilson (BS) - Now pursuing MS at CMU</li>
-                </ul>
-            </div>
-            <div class="alumni-year">
-                <h4>2021 Graduates</h4>
-                <ul>
-                    <li>Rachel Green (PhD) - Now Research Scientist at Facebook AI</li>
-                    <li>Daniel Kim (MS) - Now at NVIDIA</li>
-                    <li>Amanda White (BS) - Now pursuing PhD at UC Berkeley</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 
-<style>
-    .people-category {
-        margin-bottom: 2rem;
-    }
-    
-    .category-title {
-        background-color: var(--bg-secondary);
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-        transition: background-color 0.3s;
-    }
-    
-    .category-title:hover {
-        background-color: var(--bg-tertiary);
-    }
-    
-    .category-title h3 {
-        margin: 0;
-        color: var(--accent-blue);
-    }
-    
-    .category-content {
-        display: none;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .category-content.active {
-        display: grid;
-    }
-    
-    .person-card {
-        background-color: var(--bg-secondary);
-        border-radius: 8px;
-        overflow: hidden;
-        transition: transform 0.3s;
-    }
-    
-    .person-card:hover {
-        transform: translateY(-5px);
-    }
-    
-    .person-image {
-        height: 250px;
-        overflow: hidden;
-    }
-    
-    .person-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .person-info {
-        padding: 1.5rem;
-    }
-    
-    .person-info h4 {
-        color: var(--accent-green);
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
-    }
-    
-    .person-title {
-        color: var(--accent-orange);
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-    }
-    
-    .person-interests {
-        margin-bottom: 0.5rem;
-        color: var(--text-secondary);
-    }
-    
-    .person-email {
-        color: var(--accent-blue);
-        margin-bottom: 1rem;
-    }
-    
-    .person-links {
-        display: flex;
-        gap: 0.8rem;
-    }
-    
-    .person-links a {
-        color: var(--text-secondary);
-        font-size: 1.2rem;
-        transition: color 0.3s;
-    }
-    
-    .person-links a:hover {
-        color: var(--accent-blue);
-    }
-    
-    .alumni-year {
-        margin-bottom: 1.5rem;
-    }
-    
-    .alumni-year h4 {
-        color: var(--accent-purple);
-        margin-bottom: 0.5rem;
-        padding-bottom: 0.3rem;
-        border-bottom: 1px solid var(--bg-tertiary);
-    }
-    
-    .alumni-year ul {
-        list-style-type: none;
-        padding-left: 1rem;
-    }
-    
-    .alumni-year li {
-        margin-bottom: 0.5rem;
-        padding-left: 1rem;
-        position: relative;
-    }
-    
-    .alumni-year li:before {
-        content: "•";
-        color: var(--accent-blue);
-        position: absolute;
-        left: 0;
-    }
-</style>
-
-<script>
-    // 人员分类的展开/收起功能
-    document.querySelectorAll('.category-title').forEach(title => {
-        title.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('.fa-chevron-down, .fa-chevron-up');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 人员分类的展开/收起功能
+            const categoryTitles = document.querySelectorAll('.category-title');
             
-            // 切换内容可见性
-            content.classList.toggle('active');
+            categoryTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.fa-chevron-down, .fa-chevron-up');
+                    
+                    // 切换内容可见性
+                    content.classList.toggle('active');
+                    
+                    // 切换图标
+                    if (content.classList.contains('active')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
             
-            // 切换图标
-            if (content.classList.contains('active')) {
-                icon.classList.remove('fa-chevron-down');
-                icon.classList.add('fa-chevron-up');
-            } else {
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
+            // 默认展开第一个类别
+            if (categoryTitles.length > 0) {
+                categoryTitles[0].click();
             }
         });
-    });
-</script>
+    </script>
+</body>
+</html>
