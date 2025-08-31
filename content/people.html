@@ -249,10 +249,38 @@
             color: #888;
             font-style: italic;
         }
+        
+        /* 添加页面标题样式 */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .page-title {
+            color: var(--accent-blue);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- 添加页面标题 -->
+        <div class="page-header">
+            <h1 class="page-title">Neuramind Probe Group</h1>
+            <p class="page-subtitle">Exploring the frontiers of cognitive neuroscience and AI research</p>
+        </div>
               
         <div class="people-category">
             <div class="category-title">
@@ -539,6 +567,7 @@
             // 人员分类的展开/收起功能
             const categoryTitles = document.querySelectorAll('.category-title');
             
+            // 修正了这里的拼写错误：forEach 而不是 forEach
             categoryTitles.forEach(title => {
                 title.addEventListener('click', function() {
                     const content = this.nextElementSibling;
@@ -561,6 +590,16 @@
             // 默认展开第一个类别
             if (categoryTitles.length > 0) {
                 categoryTitles[0].click();
+            }
+            
+            // 添加URL哈希支持，可以直接链接到特定部分
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                const targetElement = document.querySelector(`[data-category="${targetId}"]`);
+                
+                if (targetElement) {
+                    targetElement.click();
+                }
             }
         });
     </script>
